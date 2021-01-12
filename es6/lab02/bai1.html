@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="target"></div>
+    <script>
+      const elTarget = document.getElementById("target");
+
+      const result = {
+        success: ["max-length", "no-amd", "prefer-arrow-functions"],
+        failure: ["no-var", "var-on-top", "linebreak"],
+        skipped: ["no-extra-semi", "no-dup-keys"],
+      };
+
+      const makeList = (arr) => {
+        const failureItems = [];
+        arr.map(function (el) {
+          let tagLi = document.createElement("li");
+          tagLi.setAttribute("class", "text-warning");
+          tagLi.innerText = `${el}`;
+          target.appendChild(tagLi);
+        });
+        return failureItems;
+      };
+
+      const failuresList = makeList(result.failure);
+    </script>
+  </body>
+</html>
