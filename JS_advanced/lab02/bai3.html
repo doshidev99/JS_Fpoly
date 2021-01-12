@@ -8,7 +8,7 @@
   <body>
     <div id="bai3">
       <label for="txtString">String</label>
-      <input type="text" id="txtString" value="FPT.././.././poly" />
+      <input type="text" id="txtString" value="FPT.././.././poly././. fsdfdsf" />
       <br />
       <br />
       <button id="convert">Convert</button>
@@ -22,14 +22,12 @@
         const countString = document.getElementById("countString");
         let temp = txtString.toLowerCase().replace(/\W+/g, " ");
         let value = temp
-          .replace(/\w+/g, (w, index) => {
+          .replace(/(?:^\w|[A-Z]|\b\w)/g, (w, index) => {
+            // none-capturing group
             return index === 0 ? w.toLowerCase() : w.toUpperCase();
           })
           .replace(/\s+/g, "");
-        // eslint-disable-next-line no-console
-        console.log(value, "value");
-        // eslint-disable-next-line no-console
-        // countString.innerText = value;
+        countString.innerText = value;
       });
     </script>
   </body>
