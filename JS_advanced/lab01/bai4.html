@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bai4</title>
+    <style>
+      .user_item {
+        color: green;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form">
+      <div>
+        <label>ID</label>
+        <input type="number" id="addUSerID" value="" placeholder="" />
+      </div>
+      <div>
+        <label>Name</label>
+        <input type="text" id="addUserName" value="" placeholder="" />
+      </div>
+      <div>
+        <label>Gender</label>
+        <select id="addUserGender">
+          <option value="1">male</option>
+          <option value="2">female</option>
+        </select>
+      </div>
+      <div>
+        <button type="button" id="addAction">Add</button>
+      </div>
+    </div>
+    <br />
+
+    <ul id="target"></ul>
+
+    <script>
+      var users = [
+        { id: 1, name: "James Smith", gender: 1 },
+        { id: 2, name: "Isla Brown", gender: 2 },
+        { id: 3, name: "Amelia DAvies", gender: 2 },
+        { id: 4, name: "Jacob Evans", gender: 1 },
+      ];
+
+      var target = document.querySelector("#target");
+
+      users.map(function (user) {
+        var tagLi = document.createElement("li");
+        tagLi.setAttribute("class", "user_item");
+        tagLi.innerText = `${user.id} - ${user.name} - ${
+          user.gender === 2 ? "female" : "male"
+        }`;
+        target.appendChild(tagLi);
+      });
+
+      var valueId = document.getElementById("addUSerID");
+      var valueName = document.getElementById("addUserName");
+      var valueGender = document.getElementById("addUserGender");
+
+      var btnAction = document.getElementById("addAction");
+      btnAction.addEventListener("click", function () {
+        if (valueId || valueName || valueGender) {
+          const valueInputId = valueId.value;
+          const valueInputName = valueName.value;
+          const valueInputGender = Number(valueGender.value);
+
+          var tagLiAfter = document.createElement("li");
+          tagLiAfter.setAttribute("class", "user_item");
+          tagLiAfter.innerText = `${valueInputId} - ${valueInputName} - ${
+            valueInputGender === 2 ? "female" : "male"
+          }`;
+          target.appendChild(tagLiAfter);
+        }
+      });
+    </script>
+  </body>
+</html>

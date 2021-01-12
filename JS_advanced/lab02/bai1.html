@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="bai1">
+      <h2>Bài 1</h2>
+      <label>String</label>
+      <input type="text" id="txtString" />
+      <button id="btn">Count</button>
+      <div id="countString" style="font-size: 30px; font-weight: bold"></div>
+    </div>
+
+    <script>
+      const lengthString = document.getElementById("countString");
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", () => {
+        const txtString = document.getElementById("txtString")?.value;
+        lengthString.innerText = `${txtString.length}`;
+      });
+    </script>
+
+  </body>
+</html>

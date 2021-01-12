@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bai6</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .py-3 {
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="py-3">
+      Date <input id="date" value="01" type="text" style="margin-left: 15px" />
+    </div>
+    <div class="py-3">Month <input id="month" value="11" type="text" /></div>
+    <div class="py-3">
+      Year
+      <input value="2019" id="year" type="text" style="margin-left: 15px" />
+    </div>
+    <button>Convert</button>
+    <script>
+      const date = document.getElementById("date").value;
+      const month = document.getElementById("month").value;
+      const year = document.getElementById("year").value;
+      const dayOfInput = `${year}-${month}-${date}`;
+
+      const value = moment(dayOfInput, "YYYY-MM-DD").format("dddd");
+      // eslint-disable-next-line no-console
+      console.log(value, "value");
+    </script>
+  </body>
+</html>

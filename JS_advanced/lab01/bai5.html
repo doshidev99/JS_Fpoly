@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bai5</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .py-3 {
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="py-3">
+      Date <input id="date" value="01" type="text" style="margin-left: 15px" />
+    </div>
+    <div class="py-3">Month <input id="month" value="11" type="text" /></div>
+    <div class="py-3">
+      Year
+      <input value="2019" id="year" type="text" style="margin-left: 15px" />
+    </div>
+    <button>Convert</button>
+
+    <div>YYYY-MM-DD : <span id="1"></span></div>
+    <div>
+      DD/MM/YYYY :
+      <span id="2"></span>
+    </div>
+    <div>DD.MM.YYYY : <span id="3"></span></div>
+    <div>DD.MM.YYYY : <span id="4"></span></div>
+    <div>DD.MMM.YYYY : <span id="5"></span></div>
+    <div>DD.MMMM.YYYY : <span id="6"></span></div>
+    <script>
+      const date = document.getElementById("date").value;
+      const month = document.getElementById("month").value;
+      const year = document.getElementById("year").value;
+      const dayOfInput = `${year}-${month}-${date}`;
+
+      const option1 = moment(dayOfInput).format("YYYY-MM-DD");
+      const option2 = moment(dayOfInput).format("MM/DD/YYYY");
+      const option3 = moment(dayOfInput).format("DD.MM.YYYY");
+      const option4 = moment(dayOfInput).format("DD.MM.YYYY");
+      const option5 = moment(dayOfInput).format("DD.MMM.YYYY");
+      const option6 = moment(dayOfInput).format("DD.MMMM.YYYY");
+      const postion1 = (document.getElementById("1").innerText = `${option1}`);
+      const postion2 = (document.getElementById("2").innerText = `${option2}`);
+      const postion3 = (document.getElementById("3").innerText = `${option3}`);
+      const postion4 = (document.getElementById("4").innerText = `${option4}`);
+      const postion5 = (document.getElementById("5").innerText = `${option5}`);
+      const postion6 = (document.getElementById("6").innerText = `${option6}`);
+    </script>
+  </body>
+</html>
