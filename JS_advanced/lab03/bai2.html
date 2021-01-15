@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for=""> Subject Name </label>
+    <input type="text" id="subject" />
+
+    <br />
+    <br />
+    <label for=""> Point </label>
+    <input type="text" id="point" />
+
+    <button id="add">add</button>
+
+    <p id="student_name"></p>
+    <p id="student_age"></p>
+    <p id="student_address"></p>
+
+    <p>Subjects:</p>
+    <ul id="subjects"></ul>
+    <script>
+      const student = {
+        name: "Nguyen van A",
+        age: 20,
+        address: "Ha Noi",
+        subbjects: [
+          {
+            name: "javascripts",
+            point: 8,
+          },
+        ],
+      };
+
+      const student_name = document.getElementById("student_name");
+      const student_age = document.getElementById("student_age");
+      const student_address = document.getElementById("student_address");
+      const subjects = document.getElementById("subjects");
+
+      student_name.innerText = student.name;
+      student_age.innerText = student.age;
+      student_address.innerText = student.address;
+      subjects.innerText = student.subbjects[0].name;
+    </script>
+  </body>
+</html>

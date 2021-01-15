@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="myForm" method="POST" enctype="multipart/form-data">
+      <label> 1st Person Name </label>
+      <input type="text" name="1st_name" value="text" required />
+      <br />
+      <label> 1st Person Age </label>
+      <input type="text" name="1st_person" value="text" required />
+      <br />
+      <label> 1st Person Address </label>
+      <input type="text" name="1st_address" value="text" required />
+      <br />
+      <br />
+      <br />
+      <label> 2st Person Name </label>
+      <input type="text" name="2st_name" value="text" required />
+      <br />
+      <label> 2st Person Age </label>
+      <input type="text" name="2st_age" value="text" required />
+      <br />
+      <label> 2st Person Address </label>
+      <input type="text" name="2st_address" value="text" required />
+      <br />
+      <button type="submit">Show profile</button>
+    </form>
+
+    <div id="result"></div>
+    <script>
+      const elements = document.getElementById("myForm").elements;
+      const handleSubmit = document.getElementById("myForm");
+      const result = document.getElementById("result");
+
+      handleSubmit.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let obj = {};
+        for (let i = 0; i < elements.length; i++) {
+          let item = elements.item(i);
+          let tagLi = document.createElement("li");
+          tagLi.innerText = `${item.name} : ${item.value}`;
+          if (elements[i].localName !== "button") {
+            result.appendChild(tagLi);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

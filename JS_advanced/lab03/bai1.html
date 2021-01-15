@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const student = {
+        id: "pd01234",
+        fullname: "le van a",
+        email: "abc@fpt.edu.vn",
+        avatar: "avatar.png",
+        addres: "137 nguyen thi thap",
+        study_major: "web desinger",
+        avgScore: "7.7",
+        getAvgScore: function () {
+          return this.avgScore;
+        },
+        setAvgScore: function (point) {
+          this.avgScore = point;
+          return this.avgScore;
+        },
+        changeAddress: function (address) {
+          this.address = address;
+          return this.address;
+        },
+      };
+      console.log(student);
+      console.log(student.getAvgScore());
+      console.log(student.setAvgScore(6));
+      console.log(student.changeAddress("Spain"));
+    </script>
+  </body>
+</html>
