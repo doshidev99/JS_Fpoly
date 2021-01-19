@@ -1,0 +1,32 @@
+{
+  "categories": [{ "id": 1, "name": "pham truong" }],
+  "products": [
+    {
+      "id": 1,
+      "name": "Paulina Ackland",
+      "cate_id": "Herc Dangl",
+      "price": "Duane Castanie",
+      "detail": "Aurie Wittleton",
+      "image": "Wilie Poppleton"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customer_name": "Katy Holberry",
+      "customer_address": "15 Ramsey Pass",
+      "customer_email": "kholberry0@psu.edu",
+      "customer_phone_number": "602-124-8814",
+      "created_date": "4/7/2020",
+      "status": false
+    }
+  ],
+  "order_details": [
+    {
+      "order_id": 1,
+      "product_id": 1,
+      "quantity": 3,
+      "unit_price": "20000"
+    }
+  ]
+}
