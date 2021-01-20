@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="name" placeholder="Nhập tên" />
+      <button id="btn">Enter</button>
+      <ul id="target"></ul>
+    </div>
+    <script>
+      const users = [
+        { name: "An" },
+        { name: "Thắng" },
+        { name: "Hải" },
+        { name: "Toàn" },
+        { name: "B" },
+      ];
+
+      const target = document.querySelector("#target");
+      const btn = document.querySelector("#btn");
+      const naming = document.getElementById("name");
+
+      btn.addEventListener("click", () => {
+        if (naming.value) {
+          users.push({ name: naming.value });
+        }
+        target.innerHTML = "";
+        users.sort((a, b) => (a.name < b.name ? -1 : 1));
+        users.map(function (user) {
+          let tagLi = document.createElement("li");
+          tagLi.setAttribute("class", "user_item");
+          tagLi.innerText = ` ${user.name}`;
+          target.appendChild(tagLi);
+        });
+      });
+    </script>
+  </body>
+</html>

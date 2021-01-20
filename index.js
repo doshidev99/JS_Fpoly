@@ -51,13 +51,37 @@
 
 // console.log(a[0] == b[0]);
 
-const obj1 = {
-  value: "hi",
-  print: function () {
-    console.log(this.value);
+// const obj1 = {
+//   value: "hi",
+//   print: function () {
+//     console.log(this.value);
+//   },
+// };
+
+// const obj2 = { value: 17 };
+
+// obj1.print.call(obj2);
+
+// const arr = [4, 2, 3, 4, 2, 32, 1, 23, 1, 2, 2, 3];
+
+// const result = arr.sort((a, b) => b - a);
+
+// console.log(result);
+
+// const arrString = ["a", "c", "b", "a", "t", "g", "h"];
+
+// const resultString = arrString.sort((a, b) => (a > b ? 1 : -1));
+
+// console.log(resultString);
+
+let anonystick = {
+  profile: {
+    website: "anonystick.com",
+    type: "blog javascript",
+    age: 0,
+    release: "",
   },
 };
 
-const obj2 = { value: 17 };
-
-obj1.print.call(obj2);
+console.log(anonystick.profile.age || 18); // 18
+console.log(anonystick.profile.age ?? 18); //0

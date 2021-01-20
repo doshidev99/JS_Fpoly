@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" id="w" name="w" placeholder="Cân nặng" />
+      <input type="text" id="h" name="h" placeholder="Chiều cao" />
+      <button id="btn">Enter</button>
+    </div>
+    <div >Chỉ số BMI của bạn là : <span id="result"></span></div>
+    <script>
+      const weight = document.getElementById("w");
+      const height = document.getElementById("h");
+      const btn = document.getElementById("btn");
+
+      const result = document.getElementById("result");
+      btn.addEventListener("click", () => {
+        result.innerText = weight.value / Math.pow(height.value, 2);
+      });
+    </script>
+  </body>
+</html>

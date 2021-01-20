@@ -3,9 +3,9 @@
 ## 1. Value vs Reference Variable
 
     - when new object-variable set as equal to ex-object after use reference key and set as equal new value -> value of initial object not mutates the.
-		
-		- Js has 5 data types: Boolean, null, undefiend, string and number -> ** Primitive types ***
-		- When declaring 1 variable = 1 ex-variable created earlier, there is a reference to 1 memory of the computer
+
+    	- Js has 5 data types: Boolean, null, undefiend, string and number -> ** Primitive types ***
+    	- When declaring 1 variable = 1 ex-variable created earlier, there is a reference to 1 memory of the computer
 
 ## 2. Closures
 
@@ -68,15 +68,42 @@
 ## 8. Identity Operator (===) vs. Equality Operator (==)
 
 ## 9. Object Comparison
-	- 2 object has value is equal doesn't equal because there is no reference to one memory
+
+    - 2 object has value is equal doesn't equal because there is no reference to one memory
 
 ## 10. Callback Functions
 
-
 ## 11. New
-	- When use prototype method 'll sharing
+
+    - When use prototype method 'll sharing
 
 ## 12. Promises
-	- When use Promise.all if any element in array reject -> promise reject ##
+
+    - When use Promise.all if any element in array reject -> promise reject ##
 
 ## 13. Async - await
+
+## 14. ES6
+
+### Compare || and ??
+
+```
+		let anonystick = {
+		profile: {
+			website: "anonystick.com",
+			type: "blog javascript",
+			age: 0,
+			release: "",
+		},
+	};
+
+	console.log(anonystick.profile.age || 18); // 18
+	console.log(anonystick.profile.age ?? 18); //0
+```
+
+### Dynamic imports
+
+```
+let module = await import('/modules/my-module.js');
+
+```
