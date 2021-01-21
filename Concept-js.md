@@ -107,3 +107,11 @@ console.log(anonystick.profile.age ?? 18); //0
 let module = await import('/modules/my-module.js');
 
 ```
+
+
+
+### Enhanced object literals
+	- sort key in object when they are the same
+## 15. Call - apply - bind
+    - Call(this, params)
+    - Apply (this, [...params])
