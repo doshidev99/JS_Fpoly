@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="target"></div>
+    <script>
+      /* 
+        Sử dụng prompt và Promise để thực hiện yêu cầu sau:  
+        1. Nhập họ và tên sinh viên
+        2. Nhập tên môn học đang được học (chỉ nhập 1 môn)
+        Mỗi môn học sinh viên sẽ cần nhập điểm thành phần chia làm 4 giai đoạn:
+          ● Lab 1 (Nhập ngay sau khi nhập tên và môn học) - chiếm 10%
+          ● Lab 2 (Nhập sau khi nhập điểm lab 1 thời gian 3s) - chiếm 20%
+          ● Lab 3 (Nhập sau khi nhập điểm lab 2 thời gian 4s) - chiếm 30%
+          ● Thi Final (Nhập sau khi nhập điểm lab 3 thời gian 3s) - chiếm 40%
+        Sau khi nhập hết toàn bộ số điểm hãy tính điểm trung bình của sinh viên    
+       */
+
+        const getResult = () => new Promise((resolve, reject) => {
+          name  = prompt('Nhập họ và tên sinh viên')
+          subject  = prompt('Nhập tên môn học đang được học (chỉ nhập 1 môn)')
+          lab01 = prompt('Lab 1 (Nhập ngay sau khi nhập tên và môn học) - chiếm 10%');
+
+          resolve();
+          }).then(() => new Promise((resolve, reject) => {
+              setTimeout(() => {
+                console.log('step1');
+                lab02 = prompt('Lab 2 (Nhập sau khi nhập điểm lab 1 thời gian 3s) - chiếm 20%');
+
+                resolve();
+              }, 3000)
+            })
+          ).then(() =>  new Promise((resolve, reject) => {
+              setTimeout(() => {
+                console.log('step2');
+                lab03 = prompt('Lab 3 (Nhập sau khi nhập điểm lab 2 thời gian 4s) - chiếm 30%');
+
+                resolve();
+              }, 4000)
+            })
+          ).then(() => new Promise((resolve, reject) => {
+              setTimeout(() => {
+                console.log('step3');
+                labFinal = prompt('Thi Final (Nhập sau khi nhập điểm lab 3 thời gian 3s) - chiếm 40%');
+
+                resolve();
+              }, 3000)
+            })
+          ).then(() => {
+            const mediumScore = (lab01 * 0,1) + (lab02 * 0.2) + (lab03 * 0.3) + (labFinal * 0.4) / 4;
+
+            switch(mediumScore) {
+              case mediumScore < 5: console.log('học lực Yếu'); break;
+              case mediumScore < 7: console.log('học lực Trung Bình Khá'); break;
+              case mediumScore < 8.5: console.log('học lực Khá'); break;
+              case mediumScore < 10: console.log('học lực Giỏi'); break;
+              default: console.log('Xuất Sắc');
+            }
+            
+            console.log(mediumScore);
+            const target = document.getElementById('target');
+            target.innerHTML = `
+              <div>
+                <div> Name: ${name} </div>
+                <div> Subject: ${subject} </div>
+                <div> Lab01: ${lab01} </div>
+                <div> lab02: ${lab02} </div>
+                <div> lab03: ${lab03} </div>
+                <div> labFinal: ${labFinal} </div>
+              </div>
+              `
+          })
+
+        getResult();
+
+    </script>
+  </body>
+</html>

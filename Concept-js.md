@@ -63,7 +63,13 @@ return 0;
 
 ## 6. Array Methods
 
-## 7. Generators
+    - reduce(accumulator, currentValue, currentIndex, originArray)
+    - new Set(array)
+
+## 7. Generators function
+
+    - yield ~~ await
+    - Yield* (generator function)
 
 ## 8. Identity Operator (===) vs. Equality Operator (==)
 
@@ -71,7 +77,12 @@ return 0;
 
     - 2 object has value is equal doesn't equal because there is no reference to one memory
 
-## 10. Callback Functions
+## 10. Functions
+
+    - Terms
+        + Declaration function ( hosting- can be called before declaring )
+        + Expression function
+        + Arrow function ( fat fn)
 
 ## 11. New
 
@@ -80,8 +91,18 @@ return 0;
 ## 12. Promises
 
     - When use Promise.all if any element in array reject -> promise reject ##
+    - Terms
+        + Promise
+        + Executor
+        + resolve
+        + reject
+        + then - catch - finally
+        + [Status]: Pending - Fulfilled - Rejected
+        + Just only show error in method catch
 
 ## 13. Async - await
+
+    -
 
 ## 14. ES6
 
@@ -108,10 +129,19 @@ let module = await import('/modules/my-module.js');
 
 ```
 
-
-
 ### Enhanced object literals
-	- sort key in object when they are the same
+
+    - sort key in object when they are the same
+
 ## 15. Call - apply - bind
+
     - Call(this, params)
     - Apply (this, [...params])
+
+## 16. DOM
+
+    - when html run on browser -> DOM because on browers had webAPI
+
+
+## 17. Eslint
+    - EST: ebstract syntax tree

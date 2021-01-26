@@ -149,13 +149,13 @@
 
 // [[2], [4], [6], [8]].flatMap((val) => val / 2); // [ 1, 2, 3, 4 ]
 
-function sleep(second) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("request done! " + Math.random());
-    }, second);
-  });
-}
+// function sleep(second) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("request done! " + Math.random());
+//     }, second);
+//   });
+// }
 
 // async function nhauBinhDan() {
 //   await sleep(1000); // gọi món
@@ -164,31 +164,139 @@ function sleep(second) {
 //   console.log("Nhậu anh em ơi....");
 // }
 
-async function correctDemo() {
-  let p1 = sleep(1000); // gọi món
-  let p2 = sleep(1000); // nhậu
-  let p3 = sleep(1000); // Tính tiền
-  await Promise.all([p1, p2, p3]);
-  console.log("Nhậu anh em ơi....");
+// async function correctDemo() {
+//   let p1 = sleep(1000); // gọi món
+//   let p2 = sleep(1000); // nhậu
+//   let p3 = sleep(1000); // Tính tiền
+//   await Promise.all([p1, p2, p3]);
+//   console.log("Nhậu anh em ơi....");
+// }
+// // nhauBinhDan();
+
+// correctDemo();
+
+// const result = Promise.all([
+//   Promise.reject(1).then(
+//     (res) => ({ status: "ok", res }),
+//     (err) => ({ status: "not ok", err })
+//   ),
+//   Promise.resolve(2).then(
+//     (res) => ({ status: "ok", res }),
+//     (err) => ({ status: "not ok", err })
+//   ),
+//   Promise.resolve(3).then(
+//     (res) => ({ status: "ok", res }),
+//     (err) => ({ status: "not ok", err })
+//   ),
+// ]).then(
+//   (res) => console.log(res),
+//   (err) => console.log(err)
+// );
+
+// var p = new Promise((resolve, reject) => {
+//   reject(Error("The Fails!"));
+// });
+
+// console.log(p);
+
+// p.catch((error) => console.log(error.message));
+// p.catch((error) => console.log(error.message));
+
+// let a = 3;
+
+// let b = 2;
+
+// a = 5;
+
+// console.log(b);
+
+// getName();
+
+// function getName() {
+//   console.log("truong");
+// }
+
+// express function
+
+// var getName = function () {
+//   console.log("truong");
+// };
+
+// class User {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+//   title = function () {
+//     console.log('xyz')
+//   }
+// }
+
+// User.prototype.title = function () {
+//   console.log('abc')
+// }
+
+// const depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9]];
+
+// // -> output flat
+
+// const flatArray = depthArray.reduce((pre, current) => {
+//   return pre.concat(current);
+// }, []);
+
+// console.log(flatArray);
+
+// const course = ["js", "php"];
+// course.length = 10;
+
+// for (let index in course) {
+//   console.log(course[index]);
+// }
+
+// function giaithua(nb) {
+//   console.log(nb);
+//   if (nb > 0) {
+//     return nb * giaithua(nb - 1);
+//   }
+//   return 1;
+// }
+
+// console.log(giaithua(6));
+
+
+const getResult = () => {
+  let a;
+  let b;
+  let c;
+ return new Promise((resolve, reject) => {
+    resolve();
+  }).then(() => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log('step1');
+        a = 1;
+        resolve();
+      }, 3000)
+    })
+  }).then(() => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log('step2');
+        b = 3;
+        resolve();
+      }, 4000)
+    })
+  }).then(() => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log('step3');
+        c = 10;
+        resolve();
+      }, 3000)
+    })
+  }).then(() => {
+    console.log(a, b, c);
+  })
 }
-// nhauBinhDan();
 
-correctDemo();
-
-const result = Promise.all([
-  Promise.reject(1).then(
-    (res) => ({ status: "ok", res }),
-    (err) => ({ status: "not ok", err })
-  ),
-  Promise.resolve(2).then(
-    (res) => ({ status: "ok", res }),
-    (err) => ({ status: "not ok", err })
-  ),
-  Promise.resolve(3).then(
-    (res) => ({ status: "ok", res }),
-    (err) => ({ status: "not ok", err })
-  ),
-]).then(
-  (res) => console.log(res),
-  (err) => console.log(err)
-);
+getResult();
