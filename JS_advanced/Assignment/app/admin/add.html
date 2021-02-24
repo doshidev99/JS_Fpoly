@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Mirrored from truelysell-admin.dreamguystech.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Oct 2020 07:03:58 GMT -->
   <head>
     <meta charset="utf-8" />
     <meta
@@ -32,9 +31,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="./assets/css/admin.css" />
   </head>
-
-  <!-- <body class="mini-sidebar"> -->
-  <body class="">
+  <body>
     <div class="main-wrapper">
       <!-- Header -->
       <div class="header fixed-header">
@@ -280,31 +277,22 @@
       <div class="sidebar" id="sidebar">
         <div class="sidebar-logo">
           <a href="../home/index.php">
-            <img
-              src="./assets/img/logo-icon.png"
-              class="img-fluid"
-              alt=""
-            />
+            <img src="./assets/img/logo-icon.png" class="img-fluid" alt="" />
           </a>
         </div>
         <div class="sidebar-inner slimscroll">
           <div id="sidebar-menu" class="sidebar-menu">
             <ul>
               <!-- <li class="active"> -->
-              <li>
-                <a href="../home/index.php"
-                  ><i class="fas fa-columns"></i> <span>Dashboard</span></a
-                >
-              </li>
 
-              <li class="">
-                <a href="../list"
+              <li>
+                <a href="./index.html"
                   ><i class="fas fa-list-ol"></i>
                   <span> Danh sách sản phẩm </span></a
                 >
               </li>
-              <li class="">
-                <a href="../add/index.php"
+              <li class="active">
+                <a href="./add.php"
                   ><i class="fas fa-plus"></i> <span> Thêm sản phẩm </span></a
                 >
               </li>
@@ -327,135 +315,121 @@
           </div>
         </div>
       </div>
+			
+      <div class="page-wrapper">
+        <div class="content">
+          <div class="row">
+            <div class="col-xl-12">
+              <!-- Page Header -->
+              <div class="page-header">
+                <div class="row">
+                  <div class="col">
+                    <h3 class="page-title">Thêm sản phẩm</h3>
+                  </div>
+                </div>
+              </div>
+              <!-- /Page Header -->
 
-      <div class="container-fluid">
-				<div class="page-wrapper">
-					<div class="content">
-						<!-- Page Header -->
-						<div class="page-header">
-							<div class="row">
-								<div class="col">
-									<h3 class="page-title">Danh sách sản phẩm</h3>
-								</div>
-								<div class="col-auto text-right">
-									<a class="btn btn-white filter-btn" href="javascript:void(0);" id="filter_search">
-										<i class="fas fa-filter"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-						<!-- /Page Header -->
-				
-						<!-- Search Filter -->
-						<div class="card filter-card d-block" id="filter_inputs">
-							<div class="card-body pb-0">
-								<form method="GET" enctype="multipart/form-data">
-									<div class="row filter-row">
-										<div class="col-sm-6 col-md-3">
-											<div class="form-group">
-												<select name="category" style="border: none; border-radius: 3px" id="category">
-													<option value="1">Áo</option>
-													<option value="2">Quần</option>
-													<option value="4">Nữ</option>
-													<option value="5">Nam</option>
-													<option value="6">Trẻ em</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6 col-md-3">
-											<div class="form-group">
-												<button class="btn btn-primary btn-block" type="submit">Tìm
-													kiếm
-												</button>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						<!-- /Search Filter -->
-				
-						<ul class="nav nav-tabs menu-tabs">
-							<li class="nav-item active">
-								<a class="nav-link" href="total-report.html">Tất cả sản phẩm <span class="badge badge-primary">
-									fdsjhfhdsjfhjsd
-									</span></a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="pending-report.html">Pending <span class="badge badge-primary">125</span></a>
-							</li>
-						</ul>
-				
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="table-responsive">
-											<table class="table table-hover table-center mb-0 datatable">
-												<thead>
-													<tr>
-														<th>STT</th>
-														<th>Tên Mặt hàng</th>
-														<th>Hình Ảnh</th>
-														<th>Đơn giá</th>
-														<th>Mô tả</th>
-														<th>Giảm Giá</th>
-														<th>Tình Trạng</th>
-														<th>
-															Tùy chọn
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-												
-														<tr>
-															<td> 1</td>
-															<td> toi la truong hang</td>
-															<td>
-																<span class="table-avatar">
-																	<a href="#" class="avatar avatar-sm mr-2">
-																		<img class="avatar-img rounded-circle" alt="" src="<?= $PR_IMAGE ?>/<?php echo $value['hinh'] ?>">
-																	</a>
-																</span>
-															</td>
-															<td>
-														don gia 123
-															</td>
-															<td>descriptions</td>
-															<td>20%</td>
-															<td>
-																<label class="badge badge-dark">
-																	<span class='text-danger'> Hết hàng <span>
-																</label>
-															</td>
-				
-															<td>
-																<div class="btn btn-danger">
-																	<a class="text-white" href="?id=<?php echo $value['ma_hh'] ?>"> Delete </a>
-																</div>
-																<div class="btn mt-3 btn-success">
-																	<a class="text-white" href="../edit/index.php?id=<?php echo $value['ma_hh'] ?>">
-																		Edit
-																	</a>
-																</div>
-															</td>
-														</tr>
-				
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+              <div class="card">
+                <div class="card-body">
+                  <form
+                    class="form-product"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="form-group">
+                      <label>Tên sản phẩm</label>
+                      <input
+                        
+                        name="name"
+                        placeholder="Áo ...."
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Giá sản phẩm</label>
+                      <input 
+                        name="price"
+                        placeholder="..."
+                        class="form-control"
+                        type="number"
+                        pattern="/\d/"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Giảm Giá (%)</label>
+                      <input 
+                        name="discount"
+                        placeholder="..."
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="file"> Hình ảnh sản phẩm </label>
+                      <input
+                        id="file"
+                        name="image"
+                        class="form-control"
+                        type="file"
+                      />
+                    </div>
+                    <div class="from-group">
+                      <label> Loại sản phẩm </label>
+                      <select name="category" id="1">
+                        <option value="1">Áo</option>
+                        <option value="2">Quần</option>
+                        <option value="3">Phụ kiện</option>
+                      </select>
+                    </div>
+                    <div class="from-group">
+                      <label>Tình trạng </label>
+                      <select name="status" id="1">
+                        <option value="1">Còn hàng</option>
+                        <option value="2">Hết hàng</option>
+                      </select>
+                    </div>
+                    <!-- <div class="from-group">
+                      <label> Số lượng </label>
+                      <input
+                        name="so_luong"
+                        class="form-control"
+                        type="number"
+                      />
+                    </div> -->
+                    <div class="form-group">
+                      <label>Mô tả sản phẩm</label>
+                      <input
+                        name="detail"
+                        placeholder="..."
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="mt-4">
+                      <button
+                        name="add-product"
+                        class="btn btn-primary"
+                        type="submit"
+                      >
+                        Thêm sản phẩm
+                      </button>
+                      <a href="categories.html" class="btn btn-link">Cancel</a>
+                    </div>
+                  </form>
+                  <!-- Form -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- jQuery -->
+    <script src="./js/add.js"></script>
 
-    <script src="./js/index.js"></script>
     <script src="./assets/js/jquery-3.5.0.min.js"></script>
 
     <!-- Bootstrap Core JS -->

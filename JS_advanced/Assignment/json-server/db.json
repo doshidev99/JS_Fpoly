@@ -1,13 +1,43 @@
 {
-  "categories": [{ "id": 1, "name": "pham truong" }],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Áo",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "name": "Quần",
+      "value": 2
+    },
+    {
+      "id": 3,
+      "name": "Phụ kiện",
+      "value": 3
+    }
+  ],
   "products": [
     {
       "id": 1,
       "name": "Paulina Ackland",
       "cate_id": "Herc Dangl",
-      "price": "Duane Castanie",
+      "price": "2000",
       "detail": "Aurie Wittleton",
-      "image": "Wilie Poppleton"
+      "image": "product-1.jpg",
+      "discount": "0.2",
+      "status": 1,
+      "category": 3
+    },
+    {
+      "id": 0.2009013197302587,
+      "name": "Khan's Salon",
+      "cate_id": "Herc Dangl",
+      "price": "2201",
+      "detail": "mo ta",
+      "image": "product-11.jpg",
+      "discount": "0.2",
+      "status": 1,
+      "category": 1
     }
   ],
   "orders": [
