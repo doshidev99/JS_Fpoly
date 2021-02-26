@@ -323,7 +323,7 @@
             <div class="page-header">
               <div class="row">
                 <div class="col">
-                  <h3 class="page-title">Danh sách sản phẩm</h3>
+                  <h3 class="page-title">Danh sách đơn hàng</h3>
                 </div>
                 <div class="col-auto text-right">
                   <a
@@ -342,18 +342,20 @@
             <div class="card filter-card d-block" id="filter_inputs">
               <div class="card-body pb-0">
                 <form
-                  id="search-category"
+                  id="search-order"
                   method="GET"
                   enctype="multipart/form-data"
                 >
                   <div class="row filter-row">
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-8">
                       <div class="form-group">
                         <!-- category -->
-                        <div id="category"></div>
+                        <div class="input-group mb-3">
+                          <input type="text" name="id_order" class="form-control w-100" placeholder="Mã đơn hàng" aria-label="Recipient's username" >
+                        </div>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-4">
                       <div class="form-group">
                         <button class="btn btn-primary btn-block" type="submit">
                           Tìm kiếm
@@ -369,14 +371,14 @@
             <ul class="nav nav-tabs menu-tabs">
               <li class="nav-item active">
                 <a class="nav-link" href="total-report.html"
-                  >Tất cả sản phẩm
-                  <span class="badge badge-primary" id="length-all-product">
+                  >Tất cả đơn hàng
+                  <span class="badge badge-primary" id="length-all-order">
                   </span></a
                 >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="pending-report.html"
-                  >Pending <span class="badge badge-primary">125</span></a
+                  >Đơn hàng đang đợi xác thực <span class="badge badge-primary" id="pending-order"></span></a
                 >
               </li>
             </ul>
@@ -391,17 +393,15 @@
                       >
                         <thead>
                           <tr>
-                            <th>STT</th>
-                            <th>Tên Mặt hàng</th>
-                            <th>Hình Ảnh</th>
-                            <th>Đơn giá</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Địa chỉ</th>
+                            <th>Số điện thoại</th>
                             <th>Mô tả</th>
-                            <th>Giảm Giá</th>
+                            <th>Ngày lên đơn</th>
                             <th>Tình Trạng</th>
-                            <th>Tùy chọn</th>
                           </tr>
                         </thead>
-                        <tbody id="listProduct"></tbody>
+                        <tbody id="listOrder"></tbody>
                       </table>
 
                       <div
