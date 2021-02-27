@@ -152,7 +152,9 @@ requestApi(`http://localhost:3000/products?id=${id_url}`)
 
         const flag =
           _cart &&
-          Object.keys(_cart?.find((el) => el.id === id_url)).length > 0;
+          Object.keys(_cart?.find((el) => el.id === id_url) || [])?.length > 0
+            ? true
+            : false;
 
         if (flag) {
           alert("sản phẩm đà tồn tại");
@@ -160,8 +162,10 @@ requestApi(`http://localhost:3000/products?id=${id_url}`)
           if (_cart) {
             const _data = [..._cart, newData];
             localStorage.setItem("cart", JSON.stringify(_data));
+            window.location.reload();
           } else {
             localStorage.setItem("cart", JSON.stringify([newData]));
+            window.location.reload();
           }
         }
       });

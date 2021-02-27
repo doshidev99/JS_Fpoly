@@ -27,10 +27,10 @@ const renderOrder = () => {
       )?.length;
 
       const html = result
-        .map((el) => {
+        .map((el, index) => {
           return `
           <tr>
-            <td >${el.id}</td>
+            <td >${index + 1}</td>
             <td>${el.customer_address}</td>
             <td>${el.customer_phone_number}</td>
             <td>${el.note}</td>
@@ -57,9 +57,8 @@ searchOrder.addEventListener("submit", (e) => {
 
   if (_id.trim().length <= 0) {
     renderOrder();
-    
   } else {
-		requestApi(urlOrder)
+    requestApi(urlOrder)
       .then((response) => response.json())
       .then(async (result) => {
         lengthAllOrder.innerText = result?.length;
@@ -86,5 +85,5 @@ searchOrder.addEventListener("submit", (e) => {
         listOrder.innerHTML = html;
       })
       .catch((err) => console.log("Request Failed", err));
-	}
+  }
 });

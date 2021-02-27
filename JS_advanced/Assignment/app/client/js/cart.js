@@ -19,9 +19,11 @@ lengthCart.innerHTML = _cart ? _cart.length : 0;
 const listCart = document.getElementById("list-cart");
 
 const renderCart = () => {
+  const sum_price = document.getElementById("sum_price");
+
   const _cart = JSON.parse(localStorage.getItem("cart"));
   const html = _cart
-    .map((cart) => {
+    .map((cart, index) => {
       return `
 			<tr>
 				<td class="delete">
@@ -38,7 +40,7 @@ const renderCart = () => {
 						</div>
 				</td>
 				<td class="price">
-						<p class="cart-price">
+						<p class="cart-price" id="price-${index}">
 						${Number(cart.price).toLocaleString("vi", {
               style: "currency",
               currency: "VND",
@@ -53,7 +55,7 @@ const renderCart = () => {
 						</div>
 				</td>
 				<td class="Total">
-				<p class="cart-price">${Number(cart.price * 4).toLocaleString("vi", {
+				<p class="cart-price">${Number(cart.price * cart.count).toLocaleString("vi", {
           style: "currency",
           currency: "VND",
         })}</p>				</td>
@@ -61,6 +63,15 @@ const renderCart = () => {
 		`;
     })
     .join(" ");
+
+  const sumPrice = _cart.reduce(
+    (pre, current) => Number(pre.price) + Number(current.price)
+  );
+
+  sum_price.innerHTML = Number(sumPrice).toLocaleString("vi", {
+    style: "currency",
+    currency: "VND",
+  });
 
   listCart.innerHTML = html;
 };
@@ -70,8 +81,6 @@ renderCart();
 const myInput = document.querySelector('input[name="count"]');
 
 myInput.addEventListener("change", (e) => {
-  // eslint-disable-next-line no-console
-  console.log(e.target.value, "e.target.value");
   const html = _cart
     .map((cart) => {
       return `
@@ -118,4 +127,44 @@ myInput.addEventListener("change", (e) => {
     })
     .join(" ");
   listCart.innerHTML = html;
+});
+
+const del_cart = document.getElementById("del_cart");
+
+del_cart.addEventListener("click", () => {
+  localStorage.removeItem("cart");
+  window.location.reload();
+});
+
+const update_cart = document.getElementById("update_cart");
+
+update_cart.addEventListener("click", () => {
+  console.log("clicked");
+});
+
+const confirm_order = document.querySelector(".confirm_order");
+
+confirm_order.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // eslint-disable-next-line no-console
+  console.log("add", "add");
+
+  const {
+    customer_name,
+    customer_address,
+    customer_email,
+    note,
+    customer_phone_number,
+  } = confirm_order;
+
+  requestApi("http://localhost:3000/orders", "POST", {
+    id: Math.random(),
+    customer_name: customer_name.value,
+    customer_address: customer_address.value,
+    customer_email: customer_email.value,
+    note: note.value,
+    customer_phone_number: customer_phone_number.value,
+    created_date: new Date().toISOString().slice(0, 10),
+    satus: false,
+  });
 });

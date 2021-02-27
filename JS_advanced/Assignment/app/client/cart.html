@@ -41,7 +41,7 @@
           </div>
           <div class="header-meta">
             <ul class="meta">
-              <li><a class="cart-toggle" href="javascript:void(0)"><i class="far fa-Shopping-cart"></i><span id="length-cart"></span></a></li>
+              <li><a class="cart-toggle" href="cart.html"><i class="far fa-Shopping-cart"></i><span id="length-cart"></span></a></li>
               <li><a class="search-toggle" href="javascript:void(0)"><i class="far fa-search"></i></a></li>
               <li><a class="menu-toggle" href="javascript:void(0)"><i class="fal fa-bars"></i></a></li>
             </ul>
@@ -172,7 +172,6 @@
     </div>
 
   </header>
-
   <!--====== Header Ends ======-->
 <!-- main -->
 
@@ -227,192 +226,95 @@
 							</tbody>
 					</table>
 			</div>
+      <form
+      class="confirm_order"
+            method="POST"
+            enctype="multipart/form-data"
+    >
+
+        <div class="row">
+          <div class="col-lg-4">
+              <div class="cart-shipping mt-50">
+                  <div class="cart-title">
+                      <h4 class="title">Thông tin vận chuyển</h4>
+                  </div>
+                  <div class="cart-form mt-25">
+                          <div class="single-form">
+                                <input type="text" name="customer_name" class="form-control w-100" placeholder="Tên khách hàng">
+                          </div>
+                          <div class="single-form">
+                            <input type="text" name="customer_address" class="form-control w-100" placeholder="Địa chỉ">
+                          </div>
+                          <div class="single-form">
+                            <input type="text" name="customer_phone_number" class="form-control w-100" placeholder="Số điện thoại">
+                          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="cart-coupon mt-50">
+                  <div class="cart-title">
+                      <h4 class="title">Bổ sung</h4>
+                  </div>
+                  <div class="cart-form mt-25">
+                    <div class="single-form">
+                        <input name="customer_email" type="email" placeholder="Email của bạn..">
+                    </div>
+                    <div class="single-form">
+                        <input name="note" type="text" placeholder="Chú thích của bạn..">
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="cart-totals mt-45">
+                  <div class="cart-title">
+                      <h4 class="title">Tổng đơn</h4>
+                  </div>
+                  <div class="cart-total-table mt-25">
+                      <table class="table">
+                          <tbody>
+                              <tr>
+                                  <td>
+                                      <p class="value">Vận chuyển</p>
+                                  </td>
+                                  <td>
+                                      <ul class="shipping-list">
+                                          <li class="radio">
+                                              <input type="radio" name="shipping" id="radio1" checked>
+                                              <label for="radio1"><span></span>  Miễn phí vận chuyển</label>
+                                          </li>
+                                      </ul>
+                                  </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    <p class="value">Tổng tiền</p>
+                                </td>
+                                <td>
+                                    <p class="price" id="sum_price"></p>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="cart-total-btn mt-20">
+                      <button type="submit" class="main-btn btn-block">Yêu cầu hoàn tất</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </form>
 			<div class="cart-btn">
 					<div class="cart-btn-left">
-							<a href="#" class="main-btn">Continue Shopping</a>
+							<a href="index.html" class="main-btn">Tiếp tục mua hàng</a>
 					</div>
 					<div class="cart-btn-right">
-							<a href="#" class="main-btn main-btn-2">Clear Cart</a>
-							<a href="#" class="main-btn main-btn-2">Update Cart</a>
+							<button  class="main-btn main-btn-2" id="del_cart">Xóa toàn bộ</button>
+							<button id="update_cart" class="main-btn main-btn-2">Cập nhập đơn hàng</button>
 					</div>
 			</div>
-			<div class="row">
-					<div class="col-lg-4">
-							<div class="cart-shipping mt-50">
-									<div class="cart-title">
-											<h4 class="title">Calculate Shipping</h4>
-											<p>Estimate your shipping fee *</p>
-									</div>
-									<div class="cart-form mt-25">
-											<p>Calculate shipping</p>
-											<form action="#">
-													<div class="single-select2">
-															<div class="form-select2">
-																	<select class="select2">
-																			<option value="0">Select a country…</option>
-																			<option value="1">Bangladesh</option>
-																			<option value="2">Canada</option>
-																			<option value="3">Colombia</option>
-																			<option value="4">Indonesia</option>
-																			<option value="5">Italy</option>
-																			<option value="6">Pakistan</option>
-																			<option value="7">Turkey</option>
-																	</select>
-															</div>
-													</div>
-													<div class="single-select2">
-															<div class="form-select2">
-																	<select class="select2">
-																			<option value="">Select an option…</option>
-																			<option value="BAG">Bagerhat</option>
-																			<option value="BAN">Bandarban</option>
-																			<option value="BAR">Barguna</option>
-																			<option value="BARI">Barisal</option>
-																			<option value="BHO">Bhola</option>
-																			<option value="BOG">Bogra</option>
-																			<option value="BRA">Brahmanbaria</option>
-																			<option value="CHA">Chandpur</option>
-																			<option value="CHI">Chittagong</option>
-																			<option value="CHU">Chuadanga</option>
-																			<option value="COM">Comilla</option>
-																			<option value="COX">Cox's Bazar</option>
-																			<option value="DHA">Dhaka</option>
-																			<option value="DIN">Dinajpur</option>
-																			<option value="FAR">Faridpur </option>
-																			<option value="FEN">Feni</option>
-																			<option value="GAI">Gaibandha</option>
-																			<option value="GAZI">Gazipur</option>
-																			<option value="GOP">Gopalganj</option>
-																			<option value="HAB">Habiganj</option>
-																			<option value="JAM">Jamalpur</option>
-																			<option value="JES">Jessore</option>
-																			<option value="JHA">Jhalokati</option>
-																			<option value="JHE">Jhenaidah</option>
-																			<option value="JOY">Joypurhat</option>
-																			<option value="KHA">Khagrachhari</option>
-																			<option value="KHU">Khulna</option>
-																			<option value="KIS">Kishoreganj</option>
-																			<option value="KUR">Kurigram</option>
-																			<option value="KUS">Kushtia</option>
-																			<option value="LAK">Lakshmipur</option>
-																			<option value="LAL">Lalmonirhat</option>
-																			<option value="MAD">Madaripur</option>
-																			<option value="MAG">Magura</option>
-																			<option value="MAN">Manikganj </option>
-																			<option value="MEH">Meherpur</option>
-																			<option value="MOU">Moulvibazar</option>
-																			<option value="MUN">Munshiganj</option>
-																			<option value="MYM">Mymensingh</option>
-																			<option value="NAO">Naogaon</option>
-																			<option value="NAR">Narail</option>
-																			<option value="NARG">Narayanganj</option>
-																			<option value="NARD">Narsingdi</option>
-																			<option value="NAT">Natore</option>
-																			<option value="NAW">Nawabganj</option>
-																			<option value="NET">Netrakona</option>
-																			<option value="NIL">Nilphamari</option>
-																			<option value="NOA">Noakhali</option>
-																			<option value="PAB">Pabna</option>
-																			<option value="PAN">Panchagarh</option>
-																			<option value="PAT">Patuakhali</option>
-																			<option value="PIR">Pirojpur</option>
-																			<option value="RAJB">Rajbari</option>
-																			<option value="RAJ">Rajshahi</option>
-																			<option value="RAN">Rangamati</option>
-																			<option value="RANP">Rangpur</option>
-																			<option value="SAT">Satkhira</option>
-																			<option value="SHA">Shariatpur</option>
-																			<option value="SHE">Sherpur</option>
-																			<option value="SIR">Sirajganj</option>
-																			<option value="SUN">Sunamganj</option>
-																			<option value="SYL">Sylhet</option>
-																			<option value="TAN">Tangail</option>
-																			<option value="THA">Thakurgaon</option>
-																	</select>
-															</div>
-													</div>
-													<div class="single-form">
-															<input type="text" placeholder="Postcode/ziip">
-													</div>
-													<div class="cart-form-btn">
-															<button class="btn-cart">Updatetotals</button>
-													</div>
-											</form>
-									</div>
-							</div>
-					</div>
-					<div class="col-lg-4">
-							<div class="cart-coupon mt-50">
-									<div class="cart-title">
-											<h4 class="title">Coupon Code</h4>
-											<p>Enter your coupon code if you have one.</p>
-									</div>
-									<div class="cart-form mt-25">
-											<form action="#">                               
-													<div class="single-form">
-															<input type="text" placeholder="Enter your coupon code..">
-													</div>
-													<div class="cart-form-btn">
-															<button class="btn-cart">Apply Coupon</button>
-													</div>
-											</form>
-									</div>
-							</div>
-					</div>
-					<div class="col-lg-4">
-							<div class="cart-totals mt-45">
-									<div class="cart-title">
-											<h4 class="title">Cart totals</h4>
-									</div>
-									<div class="cart-total-table mt-25">
-											<table class="table">
-													<tbody>
-															<tr>
-																	<td>
-																			<p class="value">Subtotal</p>
-																	</td>
-																	<td>
-																			<p class="price">£600.00</p>
-																	</td>
-															</tr>
-															<tr>
-																	<td>
-																			<p class="value">Shipping</p>
-																	</td>
-																	<td>
-																			<ul class="shipping-list">
-																					<li class="radio">
-																							<input type="radio" name="shipping" id="radio1" checked>
-																							<label for="radio1"><span></span> Flat Rate</label>
-																					</li>
-																					<li class="radio">
-																							<input type="radio" name="shipping" id="radio2">
-																							<label for="radio2"><span></span> Free Shipping</label>
-																					</li>
-																					<li class="radio">
-																							<input type="radio" name="shipping" id="radio3">
-																							<label for="radio3"><span></span> Local Pickup</label>
-																					</li>
-																			</ul>
-																	</td>
-															</tr>
-															<tr>
-																	<td>
-																			<p class="value">Total</p>
-																	</td>
-																	<td>
-																			<p class="price">£600.00</p>
-																	</td>
-															</tr>
-													</tbody>
-											</table>
-									</div>
-									<div class="cart-total-btn mt-20">
-											<a href="#" class="main-btn btn-block">Proceed To Checkout</a>
-									</div>
-							</div>
-					</div>
-			</div>
+		
 	</div>
 </section>
 
@@ -420,8 +322,6 @@
 
 
 <!-- end main -->
-
-
 
   <footer class="footer-area bg_cover pt-20 pb-50" style="background-image: url(../assets/images/footer-bg.jpg);">
     <div class="footer-widget">

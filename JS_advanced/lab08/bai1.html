@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <span>Line 0 Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+    <br />
+    <span>Line 0 Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+    <br />
+    <p id="line1">
+      Line 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    </p>
+    <p class="line2">
+      Line 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    </p>
+    <p line-count="line3">
+      Line 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    </p>
+    <p selectedLine>
+      Line 5 Lorem ipsum dolor sit amet, consectetur adipisicing elit
+    </p>
+    <br />
+    <ul>
+      <li>li 1</li>
+      <li>li 2</li>
+      <li>li 3</li>
+      <li>li 4</li>
+      <li>li 5</li>
+    </ul>
+
+    <script>
+      // eslint-disable-next-line no-console
+      console.log($("li:first"), "<----");
+      // $("li:first").attr("style", "color: red");
+      $("li:first").css("color", "red");
+      $("#line1").css("color", "blue");
+
+      $("p[selectedLine]").css("background", "purple");
+      $("ul").css("color", "green");
+    </script>
+  </body>
+</html>
