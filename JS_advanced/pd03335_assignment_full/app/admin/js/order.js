@@ -13,17 +13,22 @@ db.collection('orders').get().then(querySnapShot => {
 let count = 0;
 
 const renderOrder = (order) => {
-  const { customer_address, customer_phone_number, note, created_date, status } = order?.data()
+  const { customer_address, customer_phone_number, note, created_date, status, sum, id } = order?.data()
 
   const html = `
           <tr>
-            <td >${count + 1}</td>
+            <td> <a href="./detail-cart.html?id=${id}"> Xem chi tiết </a></td>
             <td>${customer_address}</td>
             <td>${customer_phone_number}</td>
             <td>${note}</td>
             <td>${created_date}</td>
             <td>${status ? '<span class="text-success">Đã xác thực </span>' : '<span class="text-danger">Đợi xác thực </span>'}</td>
+            <td>	${Number(sum).toLocaleString("vi", {
+              style: "currency",
+              currency: "VND",
+            })}</td>
           </tr>
         `;
-  listOrder.innerHTML = html;
+  listOrder.insertAdjacentHTML('beforeend', html)
+
 }

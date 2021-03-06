@@ -1,7 +1,5 @@
-
 const lengthCart = document.getElementById("length-cart");
 const _cart = JSON.parse(localStorage.getItem("cart"));
-
 
 lengthCart.innerHTML = _cart ? _cart.length : 0;
 
@@ -31,9 +29,9 @@ const renderCart = () => {
 				<td class="price">
 						<p class="cart-price" id="price-${index}">
 						${Number(cart.price).toLocaleString("vi", {
-        style: "currency",
-        currency: "VND",
-      })}
+              style: "currency",
+              currency: "VND",
+            })}
 						</p>
 				</td>
 				<td class="quantity">
@@ -45,27 +43,30 @@ const renderCart = () => {
 				</td>
 				<td class="Total">
 				<p class="cart-price">${Number(cart.price * cart.count).toLocaleString("vi", {
-        style: "currency",
-        currency: "VND",
-      })}</p>				</td>
+          style: "currency",
+          currency: "VND",
+        })}</p>				</td>
 		</tr>
 		`;
     })
     .join(" ");
 
-  // const sumPrice = _cart?.reduce((total, number) => {
-  //   return Number(total) + Number(number.price);
-  // }, 0);
+  const sumPrice = _cart?.reduce((total, number) => {
+    return Number(total) + Number(number.price);
+  }, 0);
 
-  // sum_price.innerHTML = Number(sumPrice).toLocaleString("vi", {
-  //   style: "currency",
-  //   currency: "VND",
-  // });
+  const sumPriceTemp = document.getElementById("sumPriceTemp");
 
-  // listCart.innerHTML = html;
+  sumPriceTemp.innerHTML = sumPrice;
+  sum_price.innerHTML = Number(sumPrice).toLocaleString("vi", {
+    style: "currency",
+    currency: "VND",
+  });
+
+  listCart.innerHTML = html;
 };
 
-// renderCart();
+renderCart();
 
 // const myInput = document.querySelector('input[name="count"]');
 
@@ -131,29 +132,66 @@ const renderCart = () => {
 //   console.log("clicked");
 // });
 
-// const confirm_order = document.querySelector(".confirm_order");
+const guidGenerator = () => {
+  var S4 = function () {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  };
+  return (
+    S4() +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    S4() +
+    S4()
+  );
+};
 
-// confirm_order.addEventListener("submit", (e) => {
-//   e.preventDefault();
+const confirm_order = document.querySelector(".confirm_order");
 
-//   const {
-//     customer_name,
-//     customer_address,
-//     customer_email,
-//     note,
-//     customer_phone_number,
-//   } = confirm_order;
+confirm_order.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-//   requestApi("http://localhost:3000/orders", "POST", {
-//     id: Math.random(),
-//     customer_name: customer_name.value,
-//     customer_address: customer_address.value,
-//     customer_email: customer_email.value,
-//     note: note.value,
-//     customer_phone_number: customer_phone_number.value,
-//     created_date: new Date().toISOString().slice(0, 10),
-//     satus: false,
-//   });
+  const {
+    customer_name,
+    customer_address,
+    customer_email,
+    note,
+    customer_phone_number,
+  } = confirm_order;
 
-//   window.open('../../admin/order.html');
-// });
+  const id = guidGenerator();
+  const newOrder = {
+    id,
+    customer_name: customer_name.value,
+
+    customer_address: customer_address.value,
+    customer_email: customer_email.value,
+    note: note.value,
+    customer_phone_number: customer_phone_number.value,
+    created_date: new Date().toISOString().slice(0, 10),
+    status: false,
+    sum: +sumPriceTemp.textContent,
+  };
+
+  const newCart = {
+    id,
+    listProduct: _cart ? _cart : []
+  }
+
+  db.collection('carts').add(newCart).then(() => console.log('add success!'))
+
+
+  db.collection("orders")
+    .add(newOrder)
+    .then(() => {
+      alert("Lên đơn hàng thành công !");
+      window.location.reload();
+      localStorage.removeItem(cart);
+    });
+});

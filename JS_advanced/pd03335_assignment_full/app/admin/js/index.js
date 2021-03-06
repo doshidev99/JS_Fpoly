@@ -63,7 +63,7 @@ const renderProduct = (product) => {
   btnDel.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('delete: ', product.data().name)
-    db.collection('products').doc(`${product.id} `).delete().then(() => {
+    db.collection('products').doc(`${product.id}`).delete().then(() => {
       alert('delete successed!')
       location.reload();
     })
@@ -151,7 +151,7 @@ const renderProductWithArrayRefactor = (product) => {
 
   btnDel.addEventListener('click', (e) => {
     e.preventDefault();
-    db.collection('products').doc(`${product.id} `).delete().then(() => {
+    db.collection('products').doc(`${product.id}`).delete().then(() => {
       alert('delete successed!')
       location.reload();
     })
@@ -196,6 +196,7 @@ modalEdit.addEventListener('submit', (e) => {
 
   // eslint-disable-next-line no-console
   console.log(id.value, 'id');
+
 
   db.collection('products').doc(id.value).update({
     category: category.value,
