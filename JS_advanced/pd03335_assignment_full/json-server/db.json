@@ -1,0 +1,213 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Áo",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "name": "Quần",
+      "value": 2
+    },
+    {
+      "id": 3,
+      "name": "Phụ kiện",
+      "value": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "ZR BỘ 4 MÀU",
+      "cate_id": "Herc Dangl",
+      "price": "399000",
+      "detail": "Aurie Wittleton",
+      "image": "pr3.jpg",
+      "discount": 0.2,
+      "status": "1",
+      "category": "1"
+    },
+    {
+      "id": 2,
+      "name": "PHÔNG GLENDA CỔ TRÒN ",
+      "cate_id": "Herc Dangl",
+      "price": "79000",
+      "detail": "Aurie Wittleton",
+      "image": "pr1.jpg",
+      "discount": 0.2,
+      "status": "1",
+      "category": "1"
+    },
+    {
+      "id": 3,
+      "name": "SM GLENDA SUÔNG CỔ",
+      "cate_id": "Herc Dangl",
+      "price": "99000",
+      "detail": "Aurie Wittleton",
+      "image": "pr4.jpg",
+      "discount": 0.2,
+      "status": "1",
+      "category": "1"
+    },
+    {
+      "id": 4,
+      "name": "QUẦN ÂU GALVIN",
+      "cate_id": "Herc Dangl",
+      "price": "139000",
+      "detail": "Chất âu xuất dư xịn",
+      "image": "pr5.jpg",
+      "discount": 0.2,
+      "status": "1",
+      "category": "2"
+    },
+    {
+      "id": 5,
+      "name": "QUẦN ÂU LACOSTE",
+      "cate_id": "Herc Dangl",
+      "price": "179000",
+      "detail": "Chất âu xuất dư xịn",
+      "image": "pr6.jpg",
+      "discount": 0.3,
+      "status": "1",
+      "category": "2"
+    },
+    {
+      "id": 6,
+      "name": "THẮT LƯNG 54",
+      "cate_id": "Herc Dangl",
+      "price": "179000",
+      "detail": "Chất da",
+      "image": "pr6.jpg",
+      "discount": 0.5,
+      "status": "1",
+      "category": "3"
+    },
+    {
+      "id": 7,
+      "name": "ÁO NIKE THỂ THAO2",
+      "cate_id": "Herc Dangl",
+      "price": "79000",
+      "detail": "Chất da",
+      "image": "aothun1.jpg",
+      "discount": 0.3,
+      "status": "1",
+      "category": "1"
+    },
+    {
+      "id": 8,
+      "name": "THẮT LƯNG 53",
+      "cate_id": "Herc Dangl",
+      "price": "99000",
+      "detail": "Chất vải",
+      "image": "nit1.jpg",
+      "discount": 0.1,
+      "status": "1",
+      "category": "3"
+    },
+    {
+      "id": 9,
+      "name": "MŨ 20 DAS LOGO",
+      "cate_id": "Herc Dangl",
+      "price": "200000",
+      "detail": "Chất da caton",
+      "image": "non1.jpg",
+      "discount": 0.3,
+      "status": "1",
+      "category": "3"
+    },
+    {
+      "id": 10,
+      "name": "MŨ Puma",
+      "cate_id": "Herc Dangl",
+      "price": "200000",
+      "detail": "Chất da caton",
+      "image": "non2.jpg",
+      "discount": 0.3,
+      "status": "1",
+      "category": "3"
+    },
+    {
+      "id": 11,
+      "name": "Pad ví",
+      "cate_id": "Herc Dangl",
+      "price": "200000",
+      "detail": "Chất vải caton co dãn",
+      "image": "vi1.jpg",
+      "discount": 0.3,
+      "status": "1",
+      "category": "3"
+    },
+    {
+      "id": 0.571431602920998,
+      "name": "Khan's Salon",
+      "cate_id": "Herc Dangl",
+      "price": "2000",
+      "detail": "Aurie Wittleton",
+      "image": "pr2.jpg",
+      "discount": 0.2,
+      "status": "1",
+      "category": "1"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customer_name": "Aloysia",
+      "customer_address": "87832 Thompson Hill",
+      "customer_email": "arunnalls0@hexun.com",
+      "note": "unavailable",
+      "customer_phone_number": "801-434-4899",
+      "created_date": "6/18/2020",
+      "status": true
+    },
+    {
+      "id": 0.7171577869984616,
+      "customer_name": "truong",
+      "customer_address": "da nang",
+      "customer_email": "truong@gmail.com",
+      "note": "giao nhanh giup toi",
+      "customer_phone_number": "0901989847",
+      "created_date": "2021-02-27",
+      "satus": false
+    },
+    {
+      "id": 0.2548289660689196,
+      "customer_name": "truong",
+      "customer_address": "da nang",
+      "customer_email": "truong@gmail.com",
+      "note": "giao nhanh giup toi",
+      "customer_phone_number": "0901989847",
+      "created_date": "2021-03-01",
+      "satus": false
+    },
+    {
+      "id": 0.7323940327607266,
+      "customer_name": "truong",
+      "customer_address": "da nang",
+      "customer_email": "333@gmail.com",
+      "note": "giao nhanh giup toi",
+      "customer_phone_number": "333",
+      "created_date": "2021-03-01",
+      "satus": false
+    },
+    {
+      "id": 0.06799532390049734,
+      "customer_name": "truong",
+      "customer_address": "da nang",
+      "customer_email": "333@gmail.com",
+      "note": "giao nhanh giup toi",
+      "customer_phone_number": "0901989847",
+      "created_date": "2021-03-01",
+      "satus": false
+    }
+  ],
+  "order_details": [
+    {
+      "order_id": 1,
+      "product_id": 1,
+      "quantity": 3,
+      "unit_price": "20000"
+    }
+  ]
+}
