@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://Assignment/./src/frontend/userApp.ts"],"names":[],"mappings":";;;;;;AAAa;AACb","file":"user.bundle.js","sourcesContent":["\"use strict\";\nconsole.log('user-app');\n"],"sourceRoot":""}

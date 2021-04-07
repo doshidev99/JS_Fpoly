@@ -102,7 +102,7 @@ return 0;
 
 ## 13. Async - await
 
-    -
+    - has `then` doesn't use await
 
 ## 14. ES6
 
