@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<%- include('partials/head.ejs') %>
+		<title>Login</title>
+</head>
+
+<style>
+	body {
+		background-image: url('images/bg.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.flex-vertical {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		height: 100vh;
+	}
+
+	main>section.content {
+		flex: 1
+	}
+</style>
+
+<body>
+
+	<main class="flex-vertical ">
+		<header class="text-center text-white py-3">
+			<h1>
+				Welcome to pokedex game. Please login
+			</h1>
+		</header>
+		<section id="app" class="content mx-auto" style="width: 400px">
+			<form action="" enctype="multipart/form-data">
+				<div class="mb-3">
+					<label for="username" class="form-label text-white">User's name</label>
+					<input placeholder="username" type="text" class="form-control" id="username" aria-describedby="username">
+					<div id="help-username" class="form-text text-danger invisible">Username must be not empty or at least 3 characters.</div>
+				</div>
+				<hr />
+				<button type="button" class="btn btn-primary" id="play">
+					play game
+				</button>
+			</form>
+
+		</section>
+		<%- include('partials/footer.ejs') %>
+		<script src="assets/user.bundle.js"></script>
+    <script src="assets/vendors~user.chunk.js"></script>
+	</main>
+	<%- include('partials/bootstrap.ejs') %>
+
+</body> 
+
+</html>
