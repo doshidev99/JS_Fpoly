@@ -41,7 +41,9 @@ if (rootEl) {
 		new GameItem(2, '', 'pk2.png'),
 		new GameItem(3, '', 'pk3.png'),
 	], rootEl);
+	
 	gameApp.renderGameBoard();
+	// gameApp.renderResetBtn(rootEl);
 }
 
 

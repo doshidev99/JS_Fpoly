@@ -26,3 +26,12 @@ main>section.content {
 .img-poke {
 	object-fit: contain;
 }
+
+.matched {
+	background: yellow;
+}
+
+.unmatched {
+	background: red;
+}
+

@@ -25,15 +25,19 @@ export class GameController {
 	}
 
 	reInitGame(): void {
-
+		this.items.forEach(item => {
+			item.status = GameItemStatus.Close;
+			item.isMatched = false
+			item.imageEl = null;
+		})
+		this.shuffle();
 	}
 
-	// isWinnerGame(): boolean {
-
-	// }
+	isWinnerGame(): boolean {
+		return this.items.filter(item => item.status === GameItemStatus.Open).length === this.items.length;
+	}
 
 	renderHtml(rootEl: HTMLElement, item: GameItem) {
-
 		const divItem: HTMLDivElement = document.createElement('div');
 		divItem.className = 'col-2 poke-card mx-1 my-3';
 		divItem.id = item.divId;
@@ -41,20 +45,20 @@ export class GameController {
 
 		const imgItem: HTMLImageElement = document.createElement('img');
 		imgItem.src = `images/${item.image}`;
-		imgItem.className = 'w-100 h-100 img-poke visible';
+		imgItem.className = 'w-100 h-100 img-poke invisible';
 		divItem.appendChild(imgItem);
 		rootEl.appendChild(divItem);
-
 	}
 
 	renderResetBtn(rootEl: HTMLElement): void {
-
+		let btn: HTMLButtonElement = rootEl.querySelector('button#reset') as HTMLButtonElement;
+		if (btn) {
+			btn.addEventListener('click', this.processResetBtnClicked)
+		}
 	}
 
 	renderGameBoard(): void {
-
 		this.shuffle();
-
 		let boardDiv: HTMLElement = this.element.querySelector('#board') as HTMLElement;
 
 		if (boardDiv) {
@@ -64,10 +68,50 @@ export class GameController {
 		}
 
 	}
+	isMatched(id: number, imgEl: HTMLImageElement): boolean {
 
-	// isMatched(id: number, imgEl: HTMLImageElement): boolean { }
+		let openItems: GameItem[] = this.items.filter(element => {
+			if (element.status === GameItemStatus.Open && !element.isMatched) {
+				return { ...element }
+			}
+		})
 
-	changeMatchedBackground(imgEl: HTMLElement | null, isMatched: boolean = true) { }
+		if (openItems.length === 2) {
+			const checkMatchedFilter = openItems.filter((e) => e.id === id);
+			if (checkMatchedFilter.length < 2) {
+				openItems.forEach(item => this.changeMatchedBackground(item.imageEl, false));
+				setTimeout(() => {
+					openItems.forEach(item => {
+						if (item.imageEl) {
+							item.status = GameItemStatus.Close;
+							item.isMatched = false;
+							item.imageEl.classList.add('invisible')
+							item.imageEl.parentElement?.classList.remove("unmatched")
+						}
+					})
+				}, 600)
+			} else {
+				openItems.forEach(item => {
+					item.isMatched = true;
+					this.changeMatchedBackground(item.imageEl);
+				})
+				return true;
+			}
+		}
+		return false;
+	}
+
+	changeMatchedBackground(imgEl: HTMLElement | null, isMatched: boolean = true) {
+
+		if (imgEl?.parentElement) {
+			if (!isMatched) {
+				imgEl.parentElement.classList.add('unmatched');
+			} else {
+				imgEl.classList.add('invisible')
+				imgEl.parentElement.classList.add('invisible')
+			}
+		}
+	}
 
 	@autobind
 	processGameItemClicked(e: Event) {
@@ -78,24 +122,26 @@ export class GameController {
 		}
 
 		for (const item of this.items) {
-			switch (true) {
-				case item.divId === el?.id:
-				case !item.isMatched:
-				case item.status === GameItemStatus.Close:
-					let imgEl = el?.querySelector('img');
-
-					if (imgEl) {
-						imgEl.className = "w-100 h-100 img-poke visible";
-					}
-					break;
-				default: return;
+			if (item.divId === el?.id && !item.isMatched && item.status === GameItemStatus.Close) {
+				item.status = GameItemStatus.Open;
+				let imgEl = el?.querySelector('img');
+				if (imgEl !== null) {
+					item.imageEl = imgEl;
+					imgEl.className = "w-100 h-100 img-poke visible";
+					this.isMatched(item.id, imgEl); //call compare poke
+				}
 			}
 		}
 
 
 	}
 
-	processResetBtnClicked(e: Event) { }
+	processResetBtnClicked(e: Event) {
+		this.reInitGame();
+		const boardElement: HTMLElement = document.querySelector('#board') as HTMLElement;
+		boardElement.innerHTML = '';
+		this.renderGameBoard();
+	}
 
 	shuffle() {
 		this.items = _.shuffle(this.items);

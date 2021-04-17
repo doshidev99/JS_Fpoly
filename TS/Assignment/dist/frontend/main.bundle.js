@@ -211,6 +211,7 @@ if (rootEl) {
         new _models_GameItem__WEBPACK_IMPORTED_MODULE_1__[/* GameItem */ "a"](3, '', 'pk3.png'),
     ], rootEl);
     gameApp.renderGameBoard();
+    gameApp.renderResetBtn(rootEl);
 }
 
 
@@ -259,9 +260,16 @@ class GameController {
         });
     }
     reInitGame() {
+        this.items.forEach(item => {
+            item.status = _models_GameItem__WEBPACK_IMPORTED_MODULE_2__[/* GameItemStatus */ "b"].Close;
+            item.isMatched = false;
+            item.imageEl = null;
+        });
+        this.shuffle();
     }
-    // isWinnerGame(): boolean {
-    // }
+    isWinnerGame() {
+        return this.items.filter(item => item.status === _models_GameItem__WEBPACK_IMPORTED_MODULE_2__[/* GameItemStatus */ "b"].Open).length === this.items.length;
+    }
     renderHtml(rootEl, item) {
         const divItem = document.createElement('div');
         divItem.className = 'col-2 poke-card mx-1 my-3';
@@ -269,11 +277,17 @@ class GameController {
         divItem.addEventListener('click', this.processGameItemClicked);
         const imgItem = document.createElement('img');
         imgItem.src = `images/${item.image}`;
-        imgItem.className = 'w-100 h-100 img-poke visible';
+        imgItem.className = 'w-100 h-100 img-poke invisible';
         divItem.appendChild(imgItem);
         rootEl.appendChild(divItem);
     }
     renderResetBtn(rootEl) {
+        let btn = rootEl.querySelector('button#reset');
+        // eslint-disable-next-line no-console
+        console.log(btn, 'btn');
+        if (btn) {
+            btn.addEventListener('click', this.processResetBtnClicked);
+        }
     }
     renderGameBoard() {
         this.shuffle();
@@ -284,28 +298,72 @@ class GameController {
             });
         }
     }
-    // isMatched(id: number, imgEl: HTMLImageElement): boolean { }
-    changeMatchedBackground(imgEl, isMatched = true) { }
+    isMatched(id, imgEl) {
+        let openItems = this.items.filter(element => {
+            if (element.status === _models_GameItem__WEBPACK_IMPORTED_MODULE_2__[/* GameItemStatus */ "b"].Open && !element.isMatched) {
+                return Object.assign({}, element);
+            }
+        });
+        if (openItems.length === 2) {
+            const checkMatchedFilter = openItems.filter((e) => e.id === id);
+            if (checkMatchedFilter.length < 2) {
+                openItems.forEach(item => this.changeMatchedBackground(item.imageEl, false));
+                setTimeout(() => {
+                    openItems.forEach(item => {
+                        var _a;
+                        if (item.imageEl) {
+                            item.status = _models_GameItem__WEBPACK_IMPORTED_MODULE_2__[/* GameItemStatus */ "b"].Close;
+                            item.isMatched = false;
+                            item.imageEl.classList.add('invisible');
+                            (_a = item.imageEl.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove("unmatched");
+                        }
+                    });
+                }, 600);
+            }
+            else {
+                openItems.forEach(item => {
+                    item.isMatched = true;
+                    this.changeMatchedBackground(item.imageEl);
+                });
+                return true;
+            }
+        }
+        return false;
+    }
+    changeMatchedBackground(imgEl, isMatched = true) {
+        if (imgEl === null || imgEl === void 0 ? void 0 : imgEl.parentElement) {
+            if (!isMatched) {
+                imgEl.parentElement.classList.add('unmatched');
+            }
+            else {
+                imgEl.classList.add('invisible');
+                imgEl.parentElement.classList.add('invisible');
+            }
+        }
+    }
     processGameItemClicked(e) {
         let el = e.target;
         if (el.tagName === 'img') {
             el = el.parentElement;
         }
         for (const item of this.items) {
-            switch (true) {
-                case item.divId === (el === null || el === void 0 ? void 0 : el.id):
-                case !item.isMatched:
-                case item.status === _models_GameItem__WEBPACK_IMPORTED_MODULE_2__[/* GameItemStatus */ "b"].Close:
-                    let imgEl = el === null || el === void 0 ? void 0 : el.querySelector('img');
-                    if (imgEl) {
-                        imgEl.className = "w-100 h-100 img-poke visible";
-                    }
-                    break;
-                default: return;
+            if (item.divId === (el === null || el === void 0 ? void 0 : el.id) && !item.isMatched && item.status === _models_GameItem__WEBPACK_IMPORTED_MODULE_2__[/* GameItemStatus */ "b"].Close) {
+                item.status = _models_GameItem__WEBPACK_IMPORTED_MODULE_2__[/* GameItemStatus */ "b"].Open;
+                let imgEl = el === null || el === void 0 ? void 0 : el.querySelector('img');
+                if (imgEl !== null) {
+                    item.imageEl = imgEl;
+                    imgEl.className = "w-100 h-100 img-poke visible";
+                    this.isMatched(item.id, imgEl); //call compare poke
+                }
             }
         }
     }
-    processResetBtnClicked(e) { }
+    processResetBtnClicked(e) {
+        this.reInitGame();
+        const boardElement = document.querySelector('#board');
+        boardElement.innerHTML = '<p> reset game </p> ';
+        this.renderGameBoard();
+    }
     shuffle() {
         this.items = lodash__WEBPACK_IMPORTED_MODULE_1__["shuffle"](this.items);
     }

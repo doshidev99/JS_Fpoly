@@ -2,8 +2,6 @@ export enum GameItemStatus {
 	Open, Close
 }
 
-
-
 export class GameItem {
 	constructor(
 		public id: number,
