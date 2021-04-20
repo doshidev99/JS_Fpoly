@@ -1,0 +1,13 @@
+{
+  "name": "assignment-rest-full-api",
+  "version": "1.0.0",
+  "description": "19/04/2021",
+  "main": "index.js",
+  "author": "phamdongtruong99",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  }
+}
