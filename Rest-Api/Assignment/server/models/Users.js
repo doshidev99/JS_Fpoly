@@ -1,36 +1,30 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../database')
+// const { Sequelize, DataTypes } = require('sequelize');
+// const sequelize = require('../database')
 
-// {
-// 	"title": "Memory",
-// 	"author": "Doug Lloyd",
-// 	"year": 2020,
-// 	"isbn": "1632168146",
-// 	"review_count": 28,
-// 	"average_score": 5.0
-//  }
+// // {
+// // 	"title": "Memory",
+// // 	"author": "Doug Lloyd",
+// // 	"year": 2020,
+// // 	"isbn": "1632168146",
+// // 	"review_count": 28,
+// // 	"average_score": 5.0
+// //  }
 
-const Users = sequelize.define('tblUsers', {
-	userId: {
-		type: DataTypes.INTEGER,
-		autoIncrement: true,
-		allowNull: false,
-		primaryKey: true
+const mongodb = require('mongodb');
+const mongoose = require('mongoose');
+const getDb = require('../database')
+
+const { Schema } = mongoose;
+
+const UserSchema = new Schema({
+	username: String,
+	password: {
+		type: String,
+		require: true
 	},
-	title: {
-		type: DataTypes.STRING,
-		allowNull: false,
-	},
-	author: DataTypes.STRING,
-	year: DataTypes.INTEGER,
-	isbn: DataTypes.STRING,
-	review_count: DataTypes.INTEGER,
-	average_score: DataTypes.FLOAT
 }, {
-	timestamps: false
-})
-
-Users.sync();
+	timestamps: true
+});
 
 
-module.exports = Users;
+module.exports = mongoose.model('User', UserSchema);

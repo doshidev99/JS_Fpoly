@@ -1,11 +1,23 @@
-const { Sequelize } = require('sequelize');
+const mongodb = require('mongodb')
+const MongoClient = mongodb.MongoClient;
 
-const sequelize = new Sequelize('bookManagement', 'root', 'Tt241299', {
-	host: 'localhost',
-	dialect: 'mysql',
-})
+let _db;
+
+MongoClient.connect('mongodb://localhost:27017/manageBooks', { useNewUrlParser: true })
+	.then(client => {
+		console.log('connected!');
+		_db = client.db();
+	}).catch(err => {
+		console.log(err);
+		throw err;
+	});
 
 
-sequelize.authenticate().then(() => 'Sequelize Connected 🚀 🚀 🚀 🚀 ')
+const getDb = () => {
+	if (_db) {
+		return _db;
+	}
+	throw 'No database found!'
+}
 
-module.exports = sequelize;
+exports.getDb = getDb;

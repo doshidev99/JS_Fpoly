@@ -7,4 +7,5 @@ const router = express.Router();
 // [GET] /blog/posts
 // router.get('/posts', blogController.getPosts)
 
+
 module.exports = router;
