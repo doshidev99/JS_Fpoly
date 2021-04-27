@@ -5,8 +5,8 @@ const bookSchema = new mongoose.Schema({
 	author: { type: String, require: true },
 	year: { type: Number, require: true },
 	isbn: { type: String, require: true },
-	review_count: { type: Number, require: true },
-	average_score: { type: Number, require: true }
+	review_count: { type: Number, require: true, default: Math.random() },
+	average_score: { type: Number, require: true, default: Math.random() }
 }, {
 	timestamps: true,
 	versionKey: false

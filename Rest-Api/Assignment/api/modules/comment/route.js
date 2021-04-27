@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { createComment } = require('./controller')
+const { getComments, getComment, createComment } = require('./controller')
 
-// router.get('/', getUsers);
+router.get('/', getComments);
+router.get('/:id', getComment);
 router.post('/', createComment);
 // router.put('/:id', updateUser);
 // router.delete('/:id', deleteUser);

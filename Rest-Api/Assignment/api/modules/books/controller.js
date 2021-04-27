@@ -18,6 +18,25 @@ module.exports = {
 		}
 	},
 
+	getBook: async (req, res) => {
+		try {
+			const { id } = req.params;
+
+			const books = await Book.find({ _id: id });
+			res.json({
+				status: 200,
+				message: 'Success',
+				payload: books,
+			});
+		} catch (error) {
+			res.json({
+				status: 500,
+				message: 'Internal not found',
+				payload: error,
+			});
+		}
+	},
+
 	createBook: async (req, res) => {
 		try {
 			const { title, author, year, isbn, review_count, average_score } = req.body;
@@ -95,18 +114,16 @@ module.exports = {
 
 			for (let i = 0; i < entries.length; i++) {
 				let keyTemp = entries[i];
-
 				// eslint-disable-next-line no-console
 				query.where({ [keyTemp]: { $regex: req.query[keyTemp], $options: 'i' } });
 			}
 
 			let payload = await query.exec();
-			res.json(payload)
 
-			// res.json({
-			// 	status: 200,
-			// 	message: 'Search....',
-			// })
+			res.json({
+				status: 200, payload,
+				message: 'Search....',
+			})
 
 		} catch (error) {
 			res.json({

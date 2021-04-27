@@ -3,8 +3,7 @@ const axios = require('axios').default;
 const router = express.Router();
 
 router.get('/', (req, res) => {
-
-	axios.get('localhost:3000/api/book')
+	axios.get('localhost:3000/api/book/')
 		.then(function (response) {
 			// handle success
 			console.log(response.json());

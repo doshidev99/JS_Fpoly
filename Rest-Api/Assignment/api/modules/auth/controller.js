@@ -1,13 +1,15 @@
 const { User } = require('../../models')
 
 module.exports = {
-	getUsers: async (req, res) => {
+	login: async (req, res) => {
 		try {
-			const users = await User.find();
+			const { username, password } = req.body;
+			const users = await User.find({ username, password });
 			res.json({
 				status: 200,
-				message: 'Success',
+				message: 'Login success',
 				payload: users,
+				token: 'hello'
 			});
 		} catch (error) {
 			res.json({
@@ -18,7 +20,7 @@ module.exports = {
 		}
 	},
 
-	createUser: async (req, res) => {
+	register: async (req, res) => {
 		try {
 			const { username, password } = req.body;
 			let user = new User({
@@ -65,7 +67,7 @@ module.exports = {
 		try {
 			const { id } = req.params;
 			const { password } = req.body;
-			
+
 			await User.findByIdAndUpdate({
 				_id: id
 			}, {

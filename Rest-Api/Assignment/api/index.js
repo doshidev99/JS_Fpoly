@@ -1,10 +1,17 @@
 const express = require('express')
 const mongoose = require('mongoose');
+const cors = require('cors')
 
-const userRoute = require('./modules/user/route')
+const authRoute = require('./modules/auth/route')
 const bookRoute = require('./modules/books/route')
 const commentRoute = require('./modules/comment/route')
 const app = express();
+
+const corsOptions = {
+  origin: "http://localhost:3001"
+};
+
+app.use(cors(corsOptions))
 
 
 // Lấy đối tượng router từ file ./routes/index.js
@@ -30,9 +37,7 @@ app.get('/', (req, res) => {
 })
 
 
-
-
-app.use('/api/user', userRoute)
+app.use('/api/auth', authRoute)
 app.use('/api/book', bookRoute)
 app.use('/api/comment', commentRoute)
 
