@@ -46,7 +46,7 @@ const html: string = _listProduct.map(el => {
       Tên sản phẩm
       <h5 class="card-title">${el.name}</h5>
       Giá sản phẩm
-      <h5 class="card-title">${el.price.toLocaleString('vi', { style: 'currency', currency: 'VND' })}</h5>  
+      <h5 class="card-title">${el.price}</h5>  
     </div>
   </div>
   `

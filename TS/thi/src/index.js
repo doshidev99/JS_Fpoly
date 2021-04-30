@@ -21,6 +21,6 @@ formatPrd.map(function (p) {
     _listProduct.push(p);
 });
 var html = _listProduct.map(function (el) {
-    return "\n  <div class=\"card mt-2\" style=\"width: 18rem;\">\n    <div class=\"card-body\">\n      M\u00E3 S\u1EA3n ph\u1EA9m\n      <h5 class=\"card-title\">" + el.productId + "</h5>\n      T\u00EAn s\u1EA3n ph\u1EA9m\n      <h5 class=\"card-title\">" + el.name + "</h5>\n      Gi\u00E1 s\u1EA3n ph\u1EA9m\n      <h5 class=\"card-title\">" + el.price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) + "</h5>  \n    </div>\n  </div>\n  ";
+    return "\n  <div class=\"card mt-2\" style=\"width: 18rem;\">\n    <div class=\"card-body\">\n      M\u00E3 S\u1EA3n ph\u1EA9m\n      <h5 class=\"card-title\">" + el.productId + "</h5>\n      T\u00EAn s\u1EA3n ph\u1EA9m\n      <h5 class=\"card-title\">" + el.name + "</h5>\n      Gi\u00E1 s\u1EA3n ph\u1EA9m\n      <h5 class=\"card-title\">" + el.price + "</h5>  \n    </div>\n  </div>\n  ";
 }).join('');
 rootEl.innerHTML = html;
