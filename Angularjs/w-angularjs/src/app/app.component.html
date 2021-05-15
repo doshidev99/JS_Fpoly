@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="caption">
+    <h4>Thôn tin sinh viên</h4>
+    <img style="width: 100px" src="assets/images/{{student.image}}" alt="">
+  </div>
+
+  <ul>
+    <li> Name: {{student.name}} </li>
+    <li> Birthday: {{student.birthday}} </li>
+    <li> Gender: {{student.gender}} </li>
+    <li> Point: {{student.point}} </li>
+  </ul>
+
+
+  <div id="inventor">
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>First</th>
+          <th>Last</th>
+          <th>Year</th>
+          <th>Passed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inventor of inventors">
+          <td>{{inventor.id}}</td>
+          <td>{{inventor.first}}</td>
+          <td>{{inventor.last}}</td>
+          <td>{{inventor.year}}</td>
+          <td>{{inventor.passed}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+
+  <div id="products">
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>product Id</th>
+          <th>product Name</th>
+          <th>product Code</th>
+          <th>release Date</th>
+          <th>description</th>
+          <th>star Rating</th>
+          <th>image </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{p.productId}}</td>
+          <td>{{p.productName}}</td>
+          <td>{{p.productCode}}</td>
+          <td>{{p.releaseDate}}</td>
+          <td>{{p.description}}</td>
+          <td>{{p.starRating}}</td>
+          <td>
+            <img style="width: 50px" src="{{p.imageUrl}}" alt="">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
